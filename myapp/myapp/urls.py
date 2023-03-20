@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from telefon.views import index
 from django.conf import settings
 
 
@@ -23,7 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('phone/', index)
+    path('phone/', include('telefon.urls')),
 ]
 
 if settings.DEBUG:

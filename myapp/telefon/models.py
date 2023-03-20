@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Phones(models.Model):
     brand = models.ForeignKey('Brand', on_delete=models.SET_NULL, null=True)
+    electronic = models.ForeignKey('Electronic', null=True, on_delete=models.PROTECT, verbose_name='Электроника')
     title = models.CharField(max_length=50, verbose_name='Модель')
     content = models.TextField(null=True, blank=True, verbose_name='Описание')
     price = models.IntegerField(null=True, blank=True, verbose_name='Цена в $')
@@ -22,6 +23,17 @@ class Phones(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f'{self.name}'
+
+class Electronic(models.Model):
+    name = models.CharField(max_length=12, db_index=True, verbose_name='Электроника')
+
+    class Meta:
+        db_table = 'electronic'
+        verbose_name_plural = 'Электроника'
+        verbose_name = 'Электроника'
 
     def __str__(self):
         return f'{self.name}'
