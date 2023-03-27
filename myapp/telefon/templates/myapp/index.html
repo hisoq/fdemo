@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ current_electronic.name }} :: Доска объявлений</title>
+</head>
+<body>
+    <h1>Объявления</h1>
+    <h2>Электроника: {{ current_electronic.name }}</h2>
+
+        <a href="/telefon/">Главная</a>
+        <a href="/telefon/{{ Phones.pk }}/">Телефоны</a>
+        {% for a in electronic %}
+        <a href="/telefon/{{ electronic.pk }}/">{{ a.name }}</a>
+        {% endfor %}
+
+    {% for ff in pph %}
+
+        <h2>{{ ff.title }} </h2>
+        <p>{{ ff.content }}</p>
+        <p>{{ ff.price }} </p>
+
+
+    {% endfor %}
+
+</body>
+</html>
