@@ -7,7 +7,6 @@
 <body>
     <h1>Объявления</h1>
     <h2>Электроника: {{ current_electronic.name }}</h2>
-
         <a href="/telefon/">Главная</a>
         <a href="/telefon/{{ Phones.pk }}/">Телефоны</a>
         {% for a in electronic %}
@@ -15,11 +14,11 @@
         {% endfor %}
 
     {% for ff in pph %}
-
+    <tb>
         <h2>{{ ff.title }} </h2>
         <p>{{ ff.content }}</p>
-        <p>{{ ff.price }} </p>
-
+        <p>{{ ff.price }} $ </p>
+    </tb>
 
     {% endfor %}
 
